@@ -1,0 +1,88 @@
+<html>
+<head>
+<script type="text/javascript">
+	function addit()
+	{
+		var sel = document.getElementById("list");
+		var option = document.createElement("option");
+		
+		var n1 = document.getElementById("num1")
+		option.text = n1.value;
+		
+		sel.add(option);
+		n1.value = "";
+		n1.focus();
+		
+	
+	}
+	
+	function clearit()
+	{
+		var sel = document.getElementById("list");
+		while (sel.length > 0)
+			sel.remove(0);
+			
+	}
+	function removeit()
+	{
+		var sel = document.getElementById("list");
+		if (sel.selectedIndex > -1)
+		{
+			sel.remove(sel.selectedIndex);
+			}
+		}
+		function sumit()
+		{
+		 
+			var sel = document.getElementById("list");
+			var ans = document.getElementById("answer");
+			var sum = 0;
+			for (var x=0;x<sel.length;x=x+1)
+				sum = sum + parseInt(sel[x].value);
+			ans.value = sum;
+		}
+	function averageit()
+	{
+			var sel = document.getElementById("list");
+			var ans = document.getElementById("answer");
+			var sum = 0;
+			for (var x=0;x<sel.length;x=x+1)
+			 sum = sum + parseInt(sel[x].value);
+			 average =  sum / sel.length;
+			ans.value = average; 
+			
+			}
+			
+			
+	</script>
+	</head>
+	<body>
+	<table border=2>
+	<tr>
+	<td><input type="input" id="num1" /></td>
+	<td>
+	<input type="submit" value="Add->" onClick="addit();" /><br />
+	<input type="submit" value="<-Remove" onClick="removeit();" /><br />
+	<input type="submit" value="Clear" onClick="clearit();" /><br />
+	</td>
+	<td><select size="4" id="list"></select></td>
+	
+	</tr>
+	
+	<tr>
+	<td>
+	</td>
+	<td><input type="submit" value="Sum" onClick="sumit();" /><br />
+	<td><input type="input" id="answer" /></td>
+	</tr>
+	<tr>
+	<td>
+	</td>
+	<td><input type="submit" value="Average" onClick="averageit();" /><br /> </td>
+	<td><input type="input" id="answer" /></td>
+	</tr>
+	</table>
+	<br />
+	
+	</body>
+	</html>
